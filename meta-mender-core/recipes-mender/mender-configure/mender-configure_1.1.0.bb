@@ -8,7 +8,9 @@ require mender-configure.inc
 # - DEFAULT_PREFERENCE
 #-------------------------------------------------------------------------------
 
-SRC_URI = "git://github.com/mendersoftware/mender-configure-module;protocol=https;branch=1.1.x"
+SRC_URI = "git://github.com/mendersoftware/mender-configure-module;protocol=https;branch=1.1.x \
+           file://0001-systemd-now-requires-usrmerge.patch \
+           "
 
 # Tag: 1.1.0
 SRCREV = "024f837a331f6c2b2f632382894ed87e663903f9"

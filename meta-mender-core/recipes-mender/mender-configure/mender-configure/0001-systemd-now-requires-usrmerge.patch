@@ -1,0 +1,34 @@
+From 31bcb0164c0ec274b2574a6af261f400d3a95c5f Mon Sep 17 00:00:00 2001
+From: Electric Worry <electricworry@users.noreply.github.com>
+Date: Mon, 18 Dec 2023 17:32:46 +0000
+Subject: [PATCH] systemd now requires usrmerge.
+
+Install into usr/lib; previous installation into lib fails.
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index b34c50b..4c363d1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -31,8 +31,8 @@ install-scripts:
+ 	install -m 755 scripts/timezone $(scriptdir)/
+ 
+ install-systemd:
+-	install -d -m 755 $(DESTDIR)/lib/systemd/system
+-	install -m 644 support/mender-configure-apply-device-config.service $(DESTDIR)/lib/systemd/system/
++	install -d -m 755 $(DESTDIR)/usr/lib/systemd/system
++	install -m 644 support/mender-configure-apply-device-config.service $(DESTDIR)/usr/lib/systemd/system/
+ 
+ uninstall: uninstall-bin uninstall-systemd
+ 
+@@ -52,7 +52,7 @@ uninstall-scripts:
+ 	rmdir -p --ignore-fail-on-non-empty $(scriptdir)
+ 
+ uninstall-systemd:
+-	rm -f $(DESTDIR)/lib/systemd/system/mender-configure-apply-device-config.service
++	rm -f $(DESTDIR)/usr/lib/systemd/system/mender-configure-apply-device-config.service
+ 	rmdir -p --ignore-fail-on-non-empty $(DESTDIR)/lib/systemd/system
+ 
+ .PHONY: build
