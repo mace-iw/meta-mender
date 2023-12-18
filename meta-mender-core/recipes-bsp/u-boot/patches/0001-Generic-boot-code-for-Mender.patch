@@ -1,4 +1,4 @@
-From ea602f88bc39b7708f702c050d8608160e1c0e85 Mon Sep 17 00:00:00 2001
+From bb393adaa54ff1203c048ac2341208b376895f1f Mon Sep 17 00:00:00 2001
 From: Kristian Amlie <kristian.amlie@northern.tech>
 Date: Tue, 21 Apr 2020 12:54:15 +0200
 Subject: [PATCH] Generic boot code for Mender.
